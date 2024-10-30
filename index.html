@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aarush Sinha</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <style>
+        :root {
+            --primary: #2d333b;
+            --secondary: #22272e;
+            --text: #adbac7;
+            --highlight: #539bf5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--secondary);
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        header {
+            background: var(--primary);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.25rem;  /* Reduced from 0.5rem */
+        }
+
+        .profile-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;  /* Reduced from 1rem */
+            line-height: 1.3;  /* Added this line */
+        }
+
+        /* Added this for social links spacing */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.75rem;  /* Added this line */
+        }
+        
+        .social-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        
+        .social-links a:hover {
+            color: var(--highlight);
+        }
+        
+        section {
+            background: var(--primary);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        
+        h2 {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .skill-tag {
+            background: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .project-card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .project-card h3 {
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-card p {
+            margin-bottom: 1rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            color: var(--highlight);
+            text-decoration: none;
+        }
+        
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <img src="https://media.licdn.com/dms/image/v2/D5603AQE1n6oBkmcX2Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730287160926?e=1735776000&v=beta&t=ZWbyDDq6OM6eGWEUOqr0uwjpdCOm1GGbE-V0QrzKWTo" alt="Profile Photo">
+                <div class="profile-info">
+                    <h1>Aarush Sinha</h1>
+                    <p>Sophomore, Delhi Technological University</p>
+                    <p>AI/ML Developer </p>
+                    <div class="social-links">
+                        <a href="https://github.com/lordaarush"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/aarushsinha"><i class="fab fa-linkedin"></i></a>
+                        <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
+                        <a href="mailto:lordaarush@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>About Me</h2>
+            <p>AI/ML developer with a passion for solving complex problems using machine learning and deep learning techniques. Experienced in developing and deploying machine learning models, with a focus on computer vision and natural language processing.</p>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">TensorFlow</span>
+                <span class="skill-tag">PyTorch</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Deep Learning</span>
+                <span class="skill-tag">Computer Vision</span>
+                <span class="skill-tag">NLP</span>
+                <span class="skill-tag">Data Analysis</span>
+                <span class="skill-tag">Git</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Featured Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3>Semantic Segmentation on Cityscapes</h3>
+                    <p>A deep learning model built with TensorFlow for performing semantic segmentation on cityscape images</p>
+                    <div class="project-links">
+                        <a href="https://github.com/lordaarush/Semantic-Segmentation-CItyscapes"><i class="fab fa-github"></i> View Code</a>
+                        <!--<a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>-->
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Cloud Cover Detection</h3>
+                    <p>Perform cloud coverage forecasting for the next 15, 25 and 30 minutes given the data of the last 6 hours</p>
+                    <div class="project-links">
+                        <a href="https://github.com/lordaarush/Cloud-Cover-Detection"><i class="fab fa-github"></i> View Code</a>
+                        <!--<a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>-->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
