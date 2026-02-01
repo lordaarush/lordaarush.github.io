@@ -6,217 +6,314 @@
     <title>Aarush Sinha</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
         :root {
-    --primary: #2d333b;
-    --secondary: #22272e;
-    --text: #adbac7;
-    --highlight: #539bf5;
-    --accent: #40474f; /* Added for background contrast */
-}
+            --white: #ffffff;
+            --black: #000000;
+            --gray-50: #f9f9f9;
+            --gray-100: #f0f0f0;
+            --gray-200: #e5e5e5;
+            --gray-300: #d4d4d4;
+            --gray-400: #a3a3a3;
+            --gray-500: #737373;
+            --gray-600: #525252;
+            --gray-700: #404040;
+            --gray-800: #262626;
+            --gray-900: #0a0a0a;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: var(--text);
-    background: var(--secondary);
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 2rem;
-}
+        body {
+            font-family: 'Grotesk', system-ui, -apple-system, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.65;
+        }
 
-/* Header */
-header {
-    background: var(--primary);
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
 
-.profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 1rem;
-    transition: transform 0.3s ease-in-out;
-}
+        /* Header */
+        header {
+            border-bottom: 1px solid var(--gray-200);
+            padding-bottom: 4rem;
+            margin-bottom: 4rem;
+        }
 
-.profile:hover {
-    transform: translateY(-5px);
-}
+        .profile {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2.5rem;
+            align-items: flex-start;
+        }
 
-.profile img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: box-shadow 0.3s ease-in-out;
-}
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
 
-.profile img:hover {
-    box-shadow: 0px 0px 15px var(--highlight);
-}
+        .profile-info h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.02em;
+        }
 
-.profile-info h1 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
+        .profile-info .title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--black);
+            margin-bottom: 0.25rem;
+        }
 
-.profile-info h1:hover {
-    color: var(--highlight);
-}
+        .profile-info .subtitle {
+            font-size: 0.95rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+        }
 
-.profile-info p {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-}
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
+        .social-links a {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--gray-300);
+            border-radius: 4px;
+            color: var(--gray-700);
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
 
-.social-links a {
-    color: var(--text);
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
+        .social-links a:hover {
+            border-color: var(--black);
+            color: var(--black);
+            background: var(--gray-50);
+        }
 
-.social-links a:hover {
-    color: var(--highlight);
-}
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
 
-/* Sections */
-section {
-    background: var(--primary);
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    transition: background 0.3s ease;
-}
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+        }
 
-section:hover {
-    background: var(--accent);
-}
+        h2 + * {
+            margin-top: 1.5rem;
+        }
 
-h2 {
-    color: #fff;
-    margin-bottom: 1rem;
-    font-size: 1.8rem;
-}
+        /* About */
+        .about-text {
+            color: var(--gray-600);
+            max-width: 700px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
 
-.skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
 
-.skill-tag {
-    background: var(--accent);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: background 0.3s ease;
-}
+        .skill-tag {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+            transition: all 0.2s ease;
+        }
 
-.skill-tag:hover {
-    background: var(--highlight);
-    color: #fff;
-}
+        .skill-tag:hover {
+            background: var(--black);
+            color: var(--white);
+            border-color: var(--black);
+        }
 
-/* Projects */
-.projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
+        /* Projects */
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
 
-.project-card {
-    background: var(--secondary);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .project-card {
+            padding: 2rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 2rem;
+            align-items: start;
+        }
 
-.project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+        .project-card:hover {
+            border-color: var(--black);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-.project-card h3 {
-    color: #fff;
-    margin-bottom: 0.5rem;
-}
+        .project-content {
+            flex: 1;
+        }
 
-.project-card p {
-    margin-bottom: 1rem;
-}
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
 
-.project-links {
-    display: flex;
-    gap: 1rem;
-}
+        .project-card h3 code {
+            font-family: 'Space Mono', monospace;
+            background: var(--gray-100);
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 1rem;
+            border: 1px solid var(--gray-200);
+        }
 
-.project-links a {
-    color: var(--highlight);
-    font-weight: 500;
-    transition: color 0.3s ease, text-decoration 0.3s;
-}
+        .project-card .description {
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
 
-.project-links a:hover {
-    color: #fff;
-    text-decoration: underline;
-}
+        .project-meta {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .profile {
-        flex-direction: column;
-        text-align: center;
-    }
+        .project-type {
+            display: inline-block;
+            background: var(--gray-100);
+            color: var(--gray-600);
+            padding: 0.35rem 0.75rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid var(--gray-200);
+        }
 
-    .profile-info h1 {
-        font-size: 2rem;
-    }
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-300);
+            transition: all 0.2s ease;
+        }
 
-    .profile img {
-        width: 150px;
-        height: 150px;
-    }
-}
+        .project-link:hover {
+            border-bottom-color: var(--black);
+        }
 
+        .project-year {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .profile {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .container {
+                padding: 3rem 1.5rem;
+            }
+
+            header {
+                padding-bottom: 2rem;
+                margin-bottom: 2.5rem;
+            }
+
+            section {
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-info h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 0.8rem;
+            }
+
+            .project-card {
+                padding: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="profile">
-                <img src="https://media.licdn.com/dms/image/v2/D5603AQE1n6oBkmcX2Q/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730287160926?e=1735776000&v=beta&t=ZWbyDDq6OM6eGWEUOqr0uwjpdCOm1GGbE-V0QrzKWTo" alt="Profile Photo">
+                <img src="https://avatars.githubusercontent.com/u/66371734?v=4" alt="Aarush Sinha" class="profile-img">
                 <div class="profile-info">
                     <h1>Aarush Sinha</h1>
-                    <p>Sophomore, Delhi Technological University</p>
-                    <p>AI/ML Developer </p>
+                    <div class="title">AI/ML Developer</div>
+                    <div class="subtitle">Delhi Technological University</div>
                     <div class="social-links">
-                        <a href="https://github.com/lordaarush"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/in/aarushsinha"><i class="fab fa-linkedin"></i></a>
-                        <!--<a href="#"><i class="fab fa-twitter"></i></a>-->
-                        <a href="mailto:lordaarush@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/lordaarush" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/aarushsinha" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="mailto:lordaarush@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -225,45 +322,63 @@ h2 {
 
     <main class="container">
         <section>
-            <h2>About Me</h2>
-            <p>I'm an AI enthusiast with a strong foundation in computer vision and NLP, combining technical expertise with hands-on experience in machine learning and deep learning. My journey spans developing custom architectures and refining models, with a focus on effective data preprocessing and feature engineering. I've enjoyed success in AI competitions, which has sharpened my ability to apply ML techniques creatively and practically. With a passion for innovation and problem-solving, I’m excited to take on new challenges and make impactful contributions.</p>
+            <h2>About</h2>
+            <p class="about-text">I'm an AI/ML developer passionate about computer vision and natural language processing. I build custom architectures, develop novel approaches to complex problems, and enjoy participating in AI competitions. I also enjoy contributing to open source ML libraries. My focus is on machine learning, deep learning, and research-driven problem solving.</p>
         </section>
 
         <section>
-            <h2>Skills</h2>
-            <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">PyTorch</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">Deep Learning</span>
-                <span class="skill-tag">Computer Vision</span>
-                <span class="skill-tag">NLP</span>
-                <span class="skill-tag">Data Analysis</span>
-                <span class="skill-tag">HTML</span>
-                <span class="skill-tag">CSS</span>
-                <span class="skill-tag">Javascript</span>
-                <span class="skill-tag">Flask</span>
+            <h2>Open Source</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3><code>meta-pytorch/torchtune</code></h3>
+                        <p class="description">Fixed a failure in Torchtune's cosine LR scheduler when training with torch.compile. Compiled optimizers sometimes replace optimizer.step with a plain function that lacks the method attributes that PyTorch LR schedulers rely on. Added a wrapper to make optimizer.step method-like when needed, restoring compatibility for full-finetune recipes using compile: true.</p>
+                        <a href="https://github.com/meta-pytorch/torchtune/pull/2945" class="project-link"><i class="fab fa-github"></i> View PR</a>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Featured Projects</h2>
+            <h2>Projects</h2>
             <div class="projects">
                 <div class="project-card">
-                    <h3>Semantic Segmentation on Cityscapes</h3>
-                    <p>A deep learning model built with TensorFlow for performing semantic segmentation on cityscape images</p>
-                    <div class="project-links">
-                        <a href="https://github.com/lordaarush/Semantic-Segmentation-CItyscapes"><i class="fab fa-github"></i> View Code</a>
-                        <!--<a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>-->
+                    <div class="project-content">
+                        <h3>Semantic Segmentation on Cityscapes</h3>
+                        <p class="description">Building novel architectures to perform semantic segmentation on the famous Cityscapes Dataset</p>
+                        <a href="https://github.com/lordaarush/Semantic-Segmentation-CItyscapes" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
                     </div>
                 </div>
+
                 <div class="project-card">
-                    <h3>Cloud Cover Detection</h3>
-                    <p>Perform cloud coverage forecasting for the next 15, 25 and 30 minutes given the data of the last 6 hours</p>
-                    <div class="project-links">
-                        <a href="https://github.com/lordaarush/Cloud-Cover-Detection"><i class="fab fa-github"></i> View Code</a>
-                        <!--<a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>-->
+                    <div class="project-content">
+                        <h3>Cloud Cover Detection</h3>
+                        <p class="description">Developing multiple novel methods to perform cloud cover detection using a plethora of features</p>
+                        <a href="https://github.com/lordaarush/Cloud-Cover-Detection" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>MCP Integration in CI/CD</h3>
+                        <p class="description">A pipeline for integrating LLM CI result analysis through the Model Context Protocol (MCP)</p>
+                        <a href="https://github.com/lordaarush/MCP-integration-in-CI-CD" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Grammar Scoring from Speech Samples</h3>
+                        <p class="description">Performing grammar scoring on speech samples using classical ensembles and PEFT-fine-tuned DistilBERT on Whisper transcripts</p>
+                        <a href="https://github.com/lordaarush/Grammar-Scoring-from-Speech-Samples" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Sentiment Analysis with LoRA</h3>
+                        <p class="description">Fine-tuning distilbert-base-uncased to perform sentiment analysis utilizing parameter efficient fine tuning from LoRA</p>
+                        <a href="https://github.com/lordaarush/Sentiment-Analysis-LORA" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
                     </div>
                 </div>
             </div>
