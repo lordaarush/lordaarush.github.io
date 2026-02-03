@@ -4,267 +4,298 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aarush Sinha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
-            /* Base Colors */
-            --bg: #e8ede9;
-            --bg-secondary: #d4ddd6;
-            --card-bg: #f2f6f3;
-            
-            /* Primary Accent - Deep Forest/Slate */
-            --primary: #3d5a4f;
-            --primary-dark: #2d4539;
-            --primary-light: #5a7a6a;
-            
-            /* Secondary Tones */
-            --slate: #4a5d57;
-            --moss: #6b8575;
-            
-            /* Neutrals */
-            --text: #2a2f2c;
-            --text-light: #4f5652;
-            --text-lighter: #7a8078;
-            --border: #c9d4cc;
-            --shadow: rgba(61, 90, 79, 0.1);
+            --desktop: #f4f1ed;
+            --window-bg: rgba(255, 255, 255, 0.7);
+            --window-border: rgba(0, 0, 0, 0.08);
+            --titlebar: rgba(250, 248, 246, 0.95);
+            --text: #2d2d2d;
+            --text-secondary: #5a5a5a;
+            --text-tertiary: #8a8a8a;
+            --accent: #5a7d65;
+            --accent-soft: rgba(90, 125, 101, 0.12);
+            --red: #e06c60;
+            --yellow: #e5c07b;
+            --green: #5a7d65;
+            --divider: rgba(0, 0, 0, 0.06);
+            --hover: rgba(0, 0, 0, 0.02);
+            --tag-bg: rgba(0, 0, 0, 0.04);
+            --shadow: rgba(0, 0, 0, 0.06);
+            --shadow-hover: rgba(0, 0, 0, 0.1);
+            --inset: rgba(255,255,255,0.8);
+            --bg-grad-1: rgba(90, 125, 101, 0.06);
+            --bg-grad-2: rgba(180, 160, 140, 0.08);
+            --bg-start: #f4f1ed;
+            --bg-mid: #f0ece7;
+            --bg-end: #ebe7e2;
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+
+        [data-theme="dark"] {
+            --desktop: #1a1d23;
+            --window-bg: rgba(28, 32, 40, 0.85);
+            --window-border: rgba(255, 255, 255, 0.06);
+            --titlebar: rgba(22, 25, 30, 0.95);
+            --text: #e8e6e3;
+            --text-secondary: #9a9590;
+            --text-tertiary: #6a6560;
+            --accent: #7c9885;
+            --accent-soft: rgba(124, 152, 133, 0.15);
+            --red: #e06c60;
+            --yellow: #e5c07b;
+            --green: #7c9885;
+            --divider: rgba(255, 255, 255, 0.06);
+            --hover: rgba(255, 255, 255, 0.03);
+            --tag-bg: rgba(255, 255, 255, 0.05);
+            --shadow: rgba(0, 0, 0, 0.3);
+            --shadow-hover: rgba(0, 0, 0, 0.4);
+            --inset: rgba(255,255,255,0.03);
+            --bg-grad-1: rgba(124, 152, 133, 0.08);
+            --bg-grad-2: rgba(180, 160, 140, 0.06);
+            --bg-start: #1a1d23;
+            --bg-mid: #1e2128;
+            --bg-end: #1a1d23;
         }
-        html {
-            scroll-behavior: smooth;
-        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--desktop);
             color: var(--text);
-            background: var(--bg);
-            line-height: 1.65;
             min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.3s ease, color 0.3s ease;
         }
-        /* Subtle paper texture */
-        body::before {
-            content: '';
+
+        .desktop-bg {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(90, 122, 106, 0.04) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(61, 90, 79, 0.03) 0%, transparent 50%);
+            inset: 0;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse 80% 60% at 15% 20%, var(--bg-grad-1) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 85% 80%, var(--bg-grad-2) 0%, transparent 50%),
+                linear-gradient(160deg, var(--bg-start) 0%, var(--bg-mid) 50%, var(--bg-end) 100%);
             pointer-events: none;
-            z-index: -1;
+            transition: background 0.3s ease;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 5rem 2rem;
-        }
-        /* Header */
-        header {
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 4rem;
-            margin-bottom: 4rem;
-        }
-        .profile {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3rem;
-            align-items: flex-start;
-        }
-        .profile-img-wrapper {
+
+        .page {
             position: relative;
-        }
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 4px 16px var(--shadow);
-            border: 2px solid var(--card-bg);
-        }
-        .profile-info h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 0.75rem;
-            letter-spacing: -0.02em;
-            color: var(--text);
-        }
-        .profile-info .title {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-        .profile-info .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-        }
-        .social-links {
+            z-index: 1;
+            padding: 3rem 2rem 4rem;
+            max-width: 880px;
+            margin: 0 auto;
             display: flex;
-            gap: 1rem;
+            flex-direction: column;
+            gap: 1.2rem;
         }
-        .social-links a {
-            width: 38px;
-            height: 38px;
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--window-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--window-border);
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            color: var(--primary);
             font-size: 1rem;
-            text-decoration: none;
+            color: var(--text-secondary);
             transition: all 0.25s ease;
-            background: var(--card-bg);
+            box-shadow: 0 2px 12px var(--shadow);
         }
-        .social-links a:hover {
-            border-color: var(--primary);
-            color: var(--card-bg);
-            background: var(--primary);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px var(--shadow);
+
+        .theme-toggle:hover {
+            background: var(--accent-soft);
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: scale(1.05);
         }
-        /* Sections */
-        section {
-            margin-bottom: 4rem;
-        }
-        h2 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--primary-dark);
-        }
-        /* About */
-        .about-text {
-            color: var(--text-light);
-            max-width: 750px;
-            line-height: 1.8;
-            font-size: 0.95rem;
-        }
-        /* Projects */
-        .projects {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        .project-card {
-            padding: 2rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+
+        .theme-toggle .icon-sun,
+        .theme-toggle .icon-moon { transition: opacity 0.2s, transform 0.2s; position: absolute; }
+        .theme-toggle .icon-moon { opacity: 1; transform: rotate(0deg); }
+        .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg); }
+        [data-theme="dark"] .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg); }
+        [data-theme="dark"] .theme-toggle .icon-sun { opacity: 1; transform: rotate(0deg); }
+
+        .window {
+            background: var(--window-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--window-border);
+            border-radius: 12px;
+            box-shadow: 0 2px 16px var(--shadow), 0 1px 0 var(--inset) inset;
+            overflow: hidden;
             transition: all 0.3s ease;
-            background: var(--card-bg);
         }
-        .project-card:hover {
-            border-color: var(--primary-light);
-            box-shadow: 0 8px 24px var(--shadow);
-            transform: translateY(-2px);
+
+        .window:hover {
+            box-shadow: 0 6px 24px var(--shadow-hover), 0 1px 0 var(--inset) inset;
         }
-        .project-content {
-            flex: 1;
-        }
-        .project-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.75rem;
-            font-weight: 600;
-            letter-spacing: -0.3px;
-            color: var(--text);
-        }
-        .project-card h3 code {
-            font-family: 'Courier New', monospace;
-            background: var(--bg-secondary);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.95rem;
-            border: 1px solid var(--border);
-            font-weight: 500;
-            color: var(--primary-dark);
-        }
-        .project-card .description {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            line-height: 1.7;
-        }
-        .project-link {
-            display: inline-flex;
+
+        .titlebar {
+            height: 38px;
+            background: var(--titlebar);
+            border-bottom: 1px solid var(--divider);
+            display: flex;
             align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
+            padding: 0 0.85rem;
+            gap: 0.6rem;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .traffic-lights { display: flex; gap: 6px; align-items: center; }
+        .tl { width: 10px; height: 10px; border-radius: 50%; opacity: 0.85; transition: opacity 0.2s; }
+        .tl-red { background: var(--red); }
+        .tl-yellow { background: var(--yellow); }
+        .tl-green { background: var(--green); }
+
+        .titlebar-title {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             font-size: 0.9rem;
-            padding: 0.5rem 0;
-            border-bottom: 1.5px solid transparent;
-            transition: all 0.2s ease;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            letter-spacing: 0.02em;
         }
-        .project-link:hover {
-            color: var(--primary-dark);
-            border-bottom-color: var(--primary-dark);
-            transform: translateX(2px);
+
+        .window-body { padding: 1.6rem 1.8rem; }
+
+        .hero-layout { display: grid; grid-template-columns: auto 1fr; gap: 1.8rem; align-items: center; }
+
+        .hero-avatar {
+            width: 88px; height: 88px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--accent-soft);
+            box-shadow: 0 4px 16px var(--shadow);
+            transition: border-color 0.3s;
         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            .profile {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            .profile-info h1 {
-                font-size: 2rem;
-            }
-            .profile-img {
-                width: 180px;
-                height: 180px;
-            }
-            .project-card {
-                padding: 1.5rem;
-            }
-            .container {
-                padding: 3rem 1.5rem;
-            }
-            header {
-                padding-bottom: 2rem;
-                margin-bottom: 2.5rem;
-            }
-            section {
-                margin-bottom: 2.5rem;
-            }
+
+        .hero-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+        .hero-text h1 { font-size: 1.8rem; font-weight: 600; color: var(--text); letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+        .hero-text .hero-meta { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 0.9rem; }
+        .hero-text .hero-meta span { color: var(--accent); margin: 0 0.4rem; }
+
+        .hero-socials { display: flex; gap: 0.5rem; }
+
+        .hero-socials a {
+            width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px;
+            background: var(--tag-bg);
+            border: 1px solid var(--divider);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
         }
-        @media (max-width: 480px) {
-            .profile-info h1 {
-                font-size: 1.6rem;
-            }
-            .profile-img {
-                width: 160px;
-                height: 160px;
-            }
-            h2 {
-                font-size: 0.75rem;
-            }
+
+        .hero-socials a:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+        .about-text { font-size: 0.98rem; color: var(--text-secondary); line-height: 1.8; }
+
+        .entry-list { display: flex; flex-direction: column; }
+        .entry { display: flex; align-items: flex-start; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--divider); }
+        .entry:last-child { border-bottom: none; padding-bottom: 0; }
+        .entry:first-child { padding-top: 0; }
+
+        .entry-icon {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            background: var(--accent-soft);
+            border: 1px solid var(--divider);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.85rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .entry-content { flex: 1; }
+        .entry-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.3rem; flex-wrap: wrap; gap: 0.4rem; }
+        .entry-title { font-size: 0.98rem; font-weight: 600; color: var(--text); }
+        .entry-tag { font-size: 0.72rem; font-weight: 500; color: var(--accent); background: var(--accent-soft); padding: 0.2rem 0.6rem; border-radius: 20px; }
+        .entry-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; }
+
+        .project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+
+        .project-card {
+            background: var(--hover);
+            border: 1px solid var(--divider);
+            border-radius: 10px;
+            padding: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s ease;
+        }
+
+        .project-card:hover { background: var(--accent-soft); border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 4px 12px var(--shadow); }
+
+        .project-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem; }
+        .project-card-num { font-size: 0.62rem; color: var(--text-tertiary); font-family: 'Geist Mono', monospace; }
+        .project-card-arrow { font-size: 0.7rem; color: var(--text-tertiary); transition: all 0.25s; }
+        .project-card:hover .project-card-arrow { color: var(--accent); transform: translate(2px, -2px); }
+        .project-card-title { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; line-height: 1.3; }
+        .project-card-desc { font-size: 0.87rem; color: var(--text-secondary); line-height: 1.6; }
+
+        .oss-entry { display: flex; gap: 1rem; align-items: flex-start; }
+        .oss-badge { font-size: 0.6rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--green); background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 20px; padding: 0.2rem 0.55rem; margin-top: 2px; }
+        .oss-content { flex: 1; }
+        .oss-repo { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.35rem; font-family: 'Geist Mono', monospace; }
+        .oss-desc { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 0.8rem; }
+        .oss-link { font-size: 0.86rem; color: var(--accent); text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.25s; }
+        .oss-link:hover { gap: 0.55rem; }
+
+        @media (max-width: 640px) {
+            .page { padding: 60px 1rem 4rem; }
+            .hero-layout { grid-template-columns: 1fr; text-align: center; }
+            .hero-avatar { margin: 0 auto; }
+            .hero-socials { justify-content: center; }
+            .project-grid { grid-template-columns: 1fr; }
+            .theme-toggle { top: 1rem; right: 1rem; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="profile">
-                <div class="profile-img-wrapper">
-                    <img src="https://avatars.githubusercontent.com/u/66371734?v=4" alt="Aarush Sinha" class="profile-img">
-                </div>
-                <div class="profile-info">
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+    <i class="fas fa-moon icon-moon"></i>
+    <i class="fas fa-sun icon-sun"></i>
+</button>
+
+<div class="desktop-bg"></div>
+
+<div class="page">
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+            <div class="titlebar-title">Profile</div>
+        </div>
+        <div class="window-body">
+            <div class="hero-layout">
+                <div class="hero-avatar"><img src="https://avatars.githubusercontent.com/u/66371734?v=4" alt="Aarush Sinha"></div>
+                <div class="hero-text">
                     <h1>Aarush Sinha</h1>
-                    <div class="title">3rd Year, EE</div>
-                    <div class="subtitle">Delhi Technological University</div>
-                    <div class="social-links">
+                    <div class="hero-meta">3rd Year, EE <span>·</span> Delhi Technological University</div>
+                    <div class="hero-socials">
                         <a href="https://github.com/lordaarush" title="GitHub"><i class="fab fa-github"></i></a>
                         <a href="https://linkedin.com/in/aarushsinha" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="mailto:lordaarush@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -272,81 +303,118 @@
                 </div>
             </div>
         </div>
-    </header>
-    <main class="container">
-        <section>
-            <h2>About</h2>
+    </div>
+
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+            <div class="titlebar-title">About</div>
+        </div>
+        <div class="window-body">
             <p class="about-text">I'm an AI/ML practitioner with a strong interest in research-driven development. I work on designing custom architectures, developing novel approaches to complex problems, and exploring ideas through systematic experimentation. I also contribute to open-source projects and enjoy engaging with emerging directions in machine learning.</p>
-        </section>
-        <section>
-            <h2>Open Source</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3><code>meta-pytorch/torchtune</code></h3>
-                        <p class="description">Fixed a failure in Torchtune's cosine LR scheduler when training with torch.compile. Compiled optimizers sometimes replace optimizer.step with a plain function that lacks the method attributes that PyTorch LR schedulers rely on. Added a wrapper to make optimizer.step method-like when needed, restoring compatibility for full-finetune recipes using compile: true.</p>
-                        <a href="https://github.com/meta-pytorch/torchtune/pull/2945" class="project-link"><i class="fab fa-github"></i> View PR</a>
+        </div>
+    </div>
+
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+            <div class="titlebar-title">Experience</div>
+        </div>
+        <div class="window-body">
+            <div class="entry-list">
+                <div class="entry">
+                    <div class="entry-icon"><i class="fas fa-briefcase"></i></div>
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <span class="entry-title">Intern</span>
+                            <span class="entry-tag">Tech Mahindra</span>
+                        </div>
+                        <p class="entry-desc">Built an MCP-powered CI/CD assistant for GitHub Actions with an event-driven webhook server, reducing stored workflow data by ~95% while delivering real-time natural-language insights on builds and deployments.</p>
+                    </div>
+                </div>
+                <div class="entry">
+                    <div class="entry-icon"><i class="fas fa-robot"></i></div>
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <span class="entry-title">Generative AI Intern</span>
+                            <span class="entry-tag">Zummit Infolabs</span>
+                        </div>
+                        <p class="entry-desc">Developed an LLM-powered chatbot for pet owners using RAG and Maximal Marginal Relevance, with query parsing for better intent recognition and FastAPI deployment.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        <section>
-            <h2>Experience</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Intern @ Tech Mahindra</h3>
-                        <p class="description">Built an MCP-powered CI/CD assistant for GitHub Actions with an event-driven webhook server, reducing stored workflow data by ~95% while delivering real-time natural-language insights on builds and deployments.</p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Generative AI Intern @ Zummit Infolabs</h3>
-                        <p class="description">Developed an LLM-powered chatbot for pet owners using RAG and Maximal Marginal Relevance, with query parsing for better intent recognition and FastAPI deployment.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <div class="projects">
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Semantic Segmentation on Cityscapes</h3>
-                        <p class="description">Building novel architectures to perform semantic segmentation on the famous Cityscapes Dataset</p>
-                        <a href="https://github.com/lordaarush/Semantic-Segmentation-CItyscapes" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Cloud Cover Detection</h3>
-                        <p class="description">Developing multiple novel methods to perform cloud cover detection using a plethora of features</p>
-                        <a href="https://github.com/lordaarush/Cloud-Cover-Detection" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>MCP Integration in CI/CD</h3>
-                        <p class="description">A pipeline for integrating LLM CI result analysis through the Model Context Protocol (MCP)</p>
-                        <a href="https://github.com/lordaarush/MCP-integration-in-CI-CD" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Grammar Scoring from Speech Samples</h3>
-                        <p class="description">Performing grammar scoring on speech samples using classical ensembles and PEFT-fine-tuned DistilBERT on Whisper transcripts</p>
-                        <a href="https://github.com/lordaarush/Grammar-Scoring-from-Speech-Samples" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-content">
-                        <h3>Sentiment Analysis with LoRA</h3>
-                        <p class="description">Fine-tuning distilbert-base-uncased to perform sentiment analysis utilizing parameter efficient fine tuning from LoRA</p>
-                        <a href="https://github.com/lordaarush/Sentiment-Analysis-LORA" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
-                    </div>
+        </div>
+    </div>
+
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+            <div class="titlebar-title">Open Source</div>
+        </div>
+        <div class="window-body">
+            <div class="oss-entry">
+                <div class="oss-badge">Merged</div>
+                <div class="oss-content">
+                    <div class="oss-repo">meta-pytorch / torchtune</div>
+                    <p class="oss-desc">Fixed a failure in Torchtune's cosine LR scheduler when training with torch.compile. Added a wrapper to make optimizer.step method-like when needed, restoring compatibility for full-finetune recipes using compile: true.</p>
+                    <a href="https://github.com/meta-pytorch/torchtune/pull/2945" class="oss-link"><i class="fab fa-github"></i> View Pull Request</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
+
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights"><div class="tl tl-red"></div><div class="tl tl-yellow"></div><div class="tl tl-green"></div></div>
+            <div class="titlebar-title">Projects</div>
+        </div>
+        <div class="window-body">
+            <div class="project-grid">
+                <a href="https://github.com/lordaarush/Semantic-Segmentation-CItyscapes" class="project-card">
+                    <div class="project-card-header"><span class="project-card-num">01</span><span class="project-card-arrow">↗</span></div>
+                    <div class="project-card-title">Semantic Segmentation on Cityscapes</div>
+                    <p class="project-card-desc">Novel architectures for semantic segmentation on the Cityscapes Dataset.</p>
+                </a>
+                <a href="https://github.com/lordaarush/Cloud-Cover-Detection" class="project-card">
+                    <div class="project-card-header"><span class="project-card-num">02</span><span class="project-card-arrow">↗</span></div>
+                    <div class="project-card-title">Cloud Cover Detection</div>
+                    <p class="project-card-desc">Multiple novel methods for cloud cover detection using diverse features.</p>
+                </a>
+                <a href="https://github.com/lordaarush/MCP-integration-in-CI-CD" class="project-card">
+                    <div class="project-card-header"><span class="project-card-num">03</span><span class="project-card-arrow">↗</span></div>
+                    <div class="project-card-title">MCP Integration in CI/CD</div>
+                    <p class="project-card-desc">LLM CI result analysis pipeline via Model Context Protocol.</p>
+                </a>
+                <a href="https://github.com/lordaarush/Grammar-Scoring-from-Speech-Samples" class="project-card">
+                    <div class="project-card-header"><span class="project-card-num">04</span><span class="project-card-arrow">↗</span></div>
+                    <div class="project-card-title">Grammar Scoring from Speech</div>
+                    <p class="project-card-desc">Speech-based grammar scoring with ensembles and PEFT-fine-tuned DistilBERT.</p>
+                </a>
+                <a href="https://github.com/lordaarush/Sentiment-Analysis-LORA" class="project-card" style="grid-column: 1 / -1;">
+                    <div class="project-card-header"><span class="project-card-num">05</span><span class="project-card-arrow">↗</span></div>
+                    <div class="project-card-title">Sentiment Analysis with LoRA</div>
+                    <p class="project-card-desc">Fine-tuning distilbert-base-uncased for sentiment analysis using LoRA parameter-efficient fine tuning.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const currentTheme = html.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+    }
+
+    // Load saved theme or default to light
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+
 </body>
 </html>
